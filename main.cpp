@@ -69,6 +69,7 @@ int main(int argc, char **argv)
   //1. ----------------------------- initialize zonemap and build -----------------------------
   //build zonemap
   zonemap<int> zones(data, (uint)data.size() / 100);
+  zones.build();
 
   if (test_case == "test_pq")
   {
@@ -77,6 +78,9 @@ int main(int argc, char **argv)
 
     auto start = std::chrono::high_resolution_clock::now();
     // query from zonemaps here
+    for(int value: queries) {
+      zones.query(value);
+    }
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     unsigned long long point_query_time = duration.count();
