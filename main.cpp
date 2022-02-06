@@ -70,6 +70,7 @@ int main(int argc, char **argv)
   //build zonemap
   zonemap<int> zones(data, (uint)data.size() / 100);
   zones.build();
+  
 
   if (test_case == "test_pq")
   {
@@ -92,7 +93,7 @@ int main(int argc, char **argv)
     auto start = std::chrono::high_resolution_clock::now();
     // range query from zonemaps here
     int n = data.size();
-
+    std::vector<int> result = zones.query(n / 10, n * 2 / 10);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     unsigned long long range_query_time = duration.count();
@@ -104,7 +105,7 @@ int main(int argc, char **argv)
     auto start = std::chrono::high_resolution_clock::now();
     // range query from zonemaps here
     int n = data.size();
-
+    std::vector<int> result = zones.query(n * 3 / 10, n * 4 / 10);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     unsigned long long range_query_time = duration.count();
@@ -116,7 +117,7 @@ int main(int argc, char **argv)
     auto start = std::chrono::high_resolution_clock::now();
     // range query from zonemaps here
     int n = data.size();
-
+    std::vector<int> result = zones.query(n * 5 / 10, n * 6 / 10);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     unsigned long long range_query_time = duration.count();
@@ -128,7 +129,7 @@ int main(int argc, char **argv)
     auto start = std::chrono::high_resolution_clock::now();
     // range query from zonemaps here
     int n = data.size();
-
+    std::vector<int> result = zones.query(n * 7 / 10, n * 8 / 10);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     unsigned long long range_query_time = duration.count();
