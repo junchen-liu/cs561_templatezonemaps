@@ -1,9 +1,9 @@
 Result Report
-domain_size  noise_percentage    rq_time   pq_time ()
-100,000         5%               
-100,000         25%
-1,000,000       5%
-1,000,000       25%
+domain_size  noise_percentage    rq_time   pq_time (microseconds)
+100,000         5%               988       7048749 
+100,000         10%              1117      7197794
+200,000         5%               1727      29537655
+200,000         10%              2044      29133843
 For range query, set 10% elements each (10-20). 5% windowThreshold.
 
 For other cases, params can be set and result will be printed to the terminal.
