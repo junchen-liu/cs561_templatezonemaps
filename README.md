@@ -1,3 +1,16 @@
+Result Report
+domain_size  noise_percentage    rq_time   pq_time ()
+100,000         5%               
+100,000         25%
+1,000,000       5%
+1,000,000       25%
+For range query, set 10% elements each (10-20). 5% windowThreshold.
+
+For other cases, params can be set and result will be printed to the terminal.
+
+
+
+
 # CS 561: Data Systems Architecture - TemplateZonemaps
 
 

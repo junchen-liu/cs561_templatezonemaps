@@ -21,12 +21,12 @@ void zonemap<T>::build(){
             curr_zone.elements = std::vector<T>();
             zones.push_back(curr_zone);
         }
-        zone<T> curr_zone = zones[i/num_elements_per_zone];
-        curr_zone.elements.push_back(elements[i]);
-        if(elements[i] > curr_zone.max){
-            curr_zone.max = elements[i];
-        } else if(elements[i] < curr_zone.min){
-            curr_zone.min = elements[i];
+        zone<T> *curr_zone = &zones[i/num_elements_per_zone];
+        curr_zone -> elements.push_back(elements[i]);
+        if(elements[i] > curr_zone -> max){
+            curr_zone ->max = elements[i];
+        } else if(elements[i] < curr_zone ->min){
+            curr_zone ->min = elements[i];
         }
     }
 }
@@ -53,12 +53,14 @@ std::vector<T> zonemap<T>::query(T low, T high) {
         if(low > zones[i].max || high < zones[i].min){
             continue;
         }
+        //std::cout << zones[i].elements.size() << std::endl;
         for(int j = 0; j < zones[i].elements.size(); j++){
             if(zones[i].elements[j] >= low && zones[i].elements[j] <= high){
                 result.push_back(zones[i].elements[j]);
             }
         }
     }
+    std::cout << result.size() << std::endl;
     return result;
 
 }
